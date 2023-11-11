@@ -13,6 +13,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Build Game
+      id: export
       uses: firebelley/godot-export@v5.2.1
       with:
         godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.1.1-stable/Godot_v4.1.1-stable_linux.x86_64.zip
@@ -21,5 +22,10 @@ jobs:
         cache: true
         archive_output: false
 
-    - name: View Output
-      run: ls -lRa
+    - name: View Archive Dir Contents
+      run: pwd && ls -lRa
+      working-directory: ${{ steps.export.outputs.archive_directory }}
+
+    - name: View Build Dir Contents
+      run: pwd && ls -lRa
+      working-directory: ${{ steps.export.outputs.build_directory }}
