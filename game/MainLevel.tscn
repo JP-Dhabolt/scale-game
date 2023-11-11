@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b0575tgg00ht"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.431373, 0.792157, 0.827451, 1)
+polygon = PackedVector2Array(0, 0, 1280, 1, 1280, 720, 0, 720)
+
+[node name="Menu" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Title" type="Label" parent="Menu"]
+offset_left = 526.0
+offset_top = 4.0
+offset_right = 739.0
+offset_bottom = 106.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "SCALE"
+
+[node name="Subtitle" type="Label" parent="Menu"]
+offset_left = 185.0
+offset_top = 93.0
+offset_right = 1103.0
+offset_bottom = 179.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Scrub Clean And Lice Extraction"
