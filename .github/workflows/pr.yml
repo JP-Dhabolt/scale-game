@@ -22,4 +22,4 @@ jobs:
         archive_output: false
 
     - name: View Output
-      run: ls -lra
+      run: ls -lRa
