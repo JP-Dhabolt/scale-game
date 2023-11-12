@@ -37,6 +37,9 @@ jobs:
         archive_output: false
         relative_export_path: ./game/export
 
+    - name: Copy Custom Files
+      run: cp -r ./custom/* ./game/export/Web
+
     - name: Setup Pages
       uses: actions/configure-pages@v3
 
