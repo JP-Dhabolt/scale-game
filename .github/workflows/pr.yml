@@ -23,6 +23,9 @@ jobs:
         archive_output: false
         relative_export_path: ./game/export
 
+    - name: Copy Custom Files
+      run: cp -r ./custom/* ./game/export/Web
+
     - name: View Archive Dir Contents
       run: pwd && ls -lRa
       working-directory: ${{ github.workspace }}/game/export
