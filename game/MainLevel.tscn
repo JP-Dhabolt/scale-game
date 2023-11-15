@@ -1,28 +1,62 @@
-[gd_scene format=3 uid="uid://b0575tgg00ht"]
+[gd_scene load_steps=4 format=3 uid="uid://b0575tgg00ht"]
+
+[ext_resource type="Texture2D" uid="uid://b75pwf8lvijaf" path="res://images/bing-image-creator-reef.jpeg" id="1_cbpw2"]
+[ext_resource type="Texture2D" uid="uid://c4b8pggvv512j" path="res://images/bing-image-creator-small-fish.png" id="2_h8eop"]
+[ext_resource type="Texture2D" uid="uid://2ly7sjpyvtm0" path="res://images/bing-image-creator-stylized-fish.png" id="3_thb48"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.431373, 0.792157, 0.827451, 1)
-polygon = PackedVector2Array(0, 0, 1280, 1, 1280, 720, 0, 720)
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(640, 640)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_cbpw2")
 
 [node name="Menu" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="Title" type="Label" parent="Menu"]
-offset_left = 526.0
-offset_top = 4.0
-offset_right = 739.0
-offset_bottom = 106.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 72
-text = "SCALE"
+[node name="PanelContainer2" type="PanelContainer" parent="Menu"]
+offset_right = 1280.0
+offset_bottom = 180.0
 
-[node name="Subtitle" type="Label" parent="Menu"]
-offset_left = 185.0
-offset_top = 93.0
-offset_right = 1103.0
-offset_bottom = 179.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/PanelContainer2"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Menu/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "S. C. A. L. E."
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Menu/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
 text = "Scrub Clean And Lice Extraction"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Menu"]
+offset_top = 640.0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/PanelContainer"]
+layout_mode = 2
+
+[node name="SmallFish" type="TextureRect" parent="Menu/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_h8eop")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="SmallFishLabel" type="Label" parent="Menu/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="StylizedFish" type="TextureRect" parent="Menu/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_thb48")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="StylizedFishLabel" type="Label" parent="Menu/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "1"
