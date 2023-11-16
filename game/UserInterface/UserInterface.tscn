@@ -1,0 +1,156 @@
+[gd_scene load_steps=4 format=3 uid="uid://dilkdrg0uhh1b"]
+
+[ext_resource type="Script" path="res://UserInterface/user_interface.gd" id="1_rrxmq"]
+[ext_resource type="Texture2D" uid="uid://c4b8pggvv512j" path="res://images/bing-image-creator-small-fish.png" id="2_40ga3"]
+[ext_resource type="Texture2D" uid="uid://2ly7sjpyvtm0" path="res://images/bing-image-creator-stylized-fish.png" id="3_30ltk"]
+
+[node name="UserInterface" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_rrxmq")
+
+[node name="BottomPanel" type="PanelContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -80.0
+offset_right = 640.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BottomPanel"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="BottomPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SmallFishLabel" type="Label" parent="BottomPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "1"
+
+[node name="SmallFish" type="TextureRect" parent="BottomPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("2_40ga3")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="StylizedFish" type="TextureRect" parent="BottomPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = ExtResource("3_30ltk")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="StylizedFishLabel" type="Label" parent="BottomPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "1"
+
+[node name="Spacer2" type="Control" parent="BottomPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TopPanel" type="PanelContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -600.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 100.0
+grow_horizontal = 0
+
+[node name="ProgressBar" type="ProgressBar" parent="TopPanel"]
+layout_mode = 2
+size_flags_vertical = 1
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="MenuPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -140.0
+offset_right = 320.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="MenuPanel"]
+layout_mode = 2
+
+[node name="MainMenu" type="VBoxContainer" parent="MenuPanel"]
+layout_mode = 2
+
+[node name="PauseMenuLabel" type="Label" parent="MenuPanel/MainMenu"]
+layout_mode = 2
+text = "Pause Menu"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MenuPanel/MainMenu"]
+layout_mode = 2
+
+[node name="ResumeButtonRow" type="HBoxContainer" parent="MenuPanel/MainMenu"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="MenuPanel/MainMenu/ResumeButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResumeButton" type="Button" parent="MenuPanel/MainMenu/ResumeButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+text = "Resume"
+
+[node name="Spacer2" type="Control" parent="MenuPanel/MainMenu/ResumeButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RestartButtonRow" type="HBoxContainer" parent="MenuPanel/MainMenu"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="MenuPanel/MainMenu/RestartButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RestartButton" type="Button" parent="MenuPanel/MainMenu/RestartButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+text = "Restart"
+
+[node name="Spacer2" type="Control" parent="MenuPanel/MainMenu/RestartButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ExitButtonRow" type="HBoxContainer" parent="MenuPanel/MainMenu"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="MenuPanel/MainMenu/ExitButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ExitButton" type="Button" parent="MenuPanel/MainMenu/ExitButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+text = "Exit"
+
+[node name="Spacer2" type="Control" parent="MenuPanel/MainMenu/ExitButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="MenuPanel/MainMenu/ResumeButtonRow/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MenuPanel/MainMenu/RestartButtonRow/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="MenuPanel/MainMenu/ExitButtonRow/ExitButton" to="." method="_on_exit_button_pressed"]

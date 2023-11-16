@@ -1,0 +1,107 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0575tgg00ht"]
+
+[ext_resource type="Script" path="res://MainLevel/main_level.gd" id="1_i83p5"]
+[ext_resource type="PackedScene" uid="uid://bal7j74fy0wne" path="res://PlayLevel/PlayLevel.tscn" id="2_aqxvs"]
+[ext_resource type="Texture2D" uid="uid://b75pwf8lvijaf" path="res://images/bing-image-creator-reef.jpeg" id="3_1y7cw"]
+
+[node name="MainLevel" type="Node2D"]
+script = ExtResource("1_i83p5")
+play_level = ExtResource("2_aqxvs")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(640, 640)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("3_1y7cw")
+metadata/_edit_lock_ = true
+
+[node name="Menu" type="CanvasLayer" parent="."]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="TitlePanel" type="PanelContainer" parent="Menu"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.0
+offset_right = 640.0
+offset_bottom = 180.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/TitlePanel"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Menu/TitlePanel/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "S. C. A. L. E."
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Menu/TitlePanel/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Scrub Clean And Lice Extraction"
+horizontal_alignment = 1
+
+[node name="MenuPanel" type="PanelContainer" parent="Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -140.0
+offset_right = 320.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="Menu/MenuPanel"]
+layout_mode = 2
+
+[node name="MainMenu" type="VBoxContainer" parent="Menu/MenuPanel"]
+layout_mode = 2
+
+[node name="MainMenuLabel" type="Label" parent="Menu/MenuPanel/MainMenu"]
+layout_mode = 2
+text = "Main Menu"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Menu/MenuPanel/MainMenu"]
+layout_mode = 2
+
+[node name="StartButtonRow" type="HBoxContainer" parent="Menu/MenuPanel/MainMenu"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Menu/MenuPanel/MainMenu/StartButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StartButton" type="Button" parent="Menu/MenuPanel/MainMenu/StartButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+text = "Start"
+
+[node name="Spacer2" type="Control" parent="Menu/MenuPanel/MainMenu/StartButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ExitButtonRow" type="HBoxContainer" parent="Menu/MenuPanel/MainMenu"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Menu/MenuPanel/MainMenu/ExitButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ExitButton" type="Button" parent="Menu/MenuPanel/MainMenu/ExitButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+text = "Exit"
+
+[node name="Spacer2" type="Control" parent="Menu/MenuPanel/MainMenu/ExitButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="Menu/MenuPanel/MainMenu/StartButtonRow/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Menu/MenuPanel/MainMenu/ExitButtonRow/ExitButton" to="." method="_on_exit_button_pressed"]
